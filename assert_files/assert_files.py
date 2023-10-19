@@ -1,3 +1,5 @@
+from assert_files.file import File
+
 def __validate_mantadory_field(attb, value):
     if not value:
         raise ValueError(f'File {attb} not provided')
@@ -21,12 +23,12 @@ def assert_objects(file1, file2, fields):
             f'{file2.filepath}: {file2.get_filtered_fields(error_list)}'
         )
 
-
+def assert_files_by_path(filepath1, filepath2, fields):
+    file1 = File(filepath=filepath1)
+    file2 = File(filepath=filepath2)
+    assert_objects(file1, file2, fields)
 
 if __name__ == "__main__":
-    from file import File
-    file1 = File(filepath='./files/test.pdf')
-    file2 = File(filepath='./files/test2.pdf')
     fields = [
         'Given Name', 
         'Family Name', 
@@ -46,4 +48,4 @@ if __name__ == "__main__":
         'Gender', 
         'Address 1'
     ]
-    assert_objects(file1, file2, fields=fields)
+    assert_files_by_path('./tests/files/test_main.pdf', './tests/files/test_main_copy.pdf', fields=fields)
