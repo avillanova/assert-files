@@ -1,12 +1,16 @@
 from setuptools import find_packages, setup
+# read the contents of your README file
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name='assert-files',
     packages=find_packages(include=['assert_files']),
-    version='0.1.2',
-    description='My first Python library',
-    long_description='my first Python library',
-    long_description_content_type='text/x-rst',
+    version='0.1.3',
+    description='Assert files in test automation',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/avillanova/assert-files',
     author='avillanova',
     install_requires=['pypdf~=3.16.4'],
