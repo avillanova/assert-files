@@ -3,22 +3,21 @@ name: Deploy to PyPI
 on:
   # allows to manually run the job at any time
   workflow_dispatch:
-
-  # run on every push on the main branch
+  # run on every push on the master branch
   push:
     branches:
       - main
 
-      jobs:
-        pypi-publish:
-          name: Upload release to PyPI
-          runs-on: ubuntu-latest
-          environment:
-            name: pypi
-            url: https://pypi.org/p/<your-pypi-project-name>
-          permissions:
-            id-token: ${{ secrets.PYPI_API_TOKEN }}  # IMPORTANT: this permission is mandatory for trusted publishing
-            steps:
-            # retrieve your distributions here
-            - name: Publish package distributions to PyPI
-              uses: pypa/gh-action-pypi-publish@release/v1
+jobs:
+  pypi-publish:
+    name: Upload release to PyPI
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/assert-files
+    permissions:
+      id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
+    steps:
+      # retrieve your distributions here
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
