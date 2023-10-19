@@ -1,5 +1,5 @@
 from assert_files.assert_files import assert_objects, assert_files_by_path
-from assert_files import File
+from assert_files.file import File
 
 fields = [
     'Given Name', 

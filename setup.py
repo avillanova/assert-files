@@ -3,11 +3,11 @@ from setuptools import find_packages, setup
 setup(
     name='assert-files',
     packages=find_packages(include=['assert_files']),
-    version='0.1.1',
+    version='0.1.2',
     description='My first Python library',
     long_description='my first Python library',
     long_description_content_type='text/x-rst',
-    url='',
+    url='https://github.com/avillanova/assert-files',
     author='avillanova',
     install_requires=['pypdf~=3.16.4'],
     setup_requires=['pytest-runner'],
